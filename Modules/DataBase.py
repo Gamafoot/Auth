@@ -121,6 +121,7 @@ class DataBase:
                     case 'one': data = cursor.fetchone()
                     case 'all': data = cursor.fetchall()
                     case 'many': data = cursor.fetchmany()
+                    
                 
                 if data: data = self.__dataHandler(data, desc, mode)
                     
@@ -133,7 +134,7 @@ class DataBase:
         match mode:
             case 'one':
                 res = [dict(zip([col[0] for col in desc], row)) for row in [data]][0]
-                
+
                 for key in res:
                     if res[key] == None: res[key] = ''
                 
@@ -153,8 +154,7 @@ class DataBase:
                 for index, el in enumerate(res):
                     for key in el.keys():
                         if res[index][key] == None: res[index][key] = ''
-            
-        print(res)       
+                   
         return res
     
     
