@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/selectize.default.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.min.css')}}" />
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="robots" content="index, follow" />
+    <meta name="google" content="notranslate" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <title>passwgen</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.min.css')}}" />
+
+    <body>
+        <div id="login">
+            <div class="login_header">
+                <div class="logo">
+                    <h1>Passwd<span class="colored">Gen</span></h1>
+                </div>
+                <div class="description">Зарегистрировать аккаунт</div>
+            </div>
+            {% for cat, msg in get_flashed_messages(True)%}
+                <div class="alert alert-{{ cat }}" role="alert">{{ msg }}</div>
+            {% endfor %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 login_wrapper">
+                        <div class="login_container">
+                            <form action="" method="post">
+                                <label for="email">Почта</label>
+                                <input type="email" name="email" id="email" placeholder="Почта" class="text_input" autocomplete />
+                                <label for="password">Пароль</label>
+                                <input type="password" name="password" id="password" placeholder="Пароль" class="text_input" />
+                                <label for="password">Повторите пароль</label>
+                                <input type="password" name="repeat_password" id="repeat_password" placeholder="Повторите пароль" class="text_input" />
+                                <input type="submit" value="Зарегистрироваться" class="btn filled" id="submit" />
+                                <!-- <a href="#" class="forgot_link">Забыли пароль?</a>
+
+                                <span class="hr">or</span> -->
+
+                                <input type="button" onclick="window.location = '/login'" value="Войти" class="btn" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
